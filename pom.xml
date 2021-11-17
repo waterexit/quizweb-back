@@ -161,6 +161,7 @@ under the License.
 		-->
 	</dependencies>
 	<build>
+	<finalName>quizWeb</finalName>
 		<plugins>
 			<plugin>
 				<groupId>

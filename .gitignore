@@ -26,6 +26,7 @@ hs_err_pid*
 
 #directory
 /target
+/build/deploy
 /.idea
 /.vscode
 /src/main/resources/static/react

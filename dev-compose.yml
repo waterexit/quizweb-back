@@ -6,6 +6,7 @@
       volumes:
       - .:/workspaces/quizweb
       - react_zone:/workspaces/quizweb/src/main/resources/static/react
+      - war_deploy:/workspaces/quizweb/build/deploy
       networks:
         develop_net:
           ipv4_address: 172.22.0.10
@@ -51,7 +52,8 @@
       - '8009'
       volumes:
         - ./conf/tomcat/conf:/usr/local/tomcat/conf
-        - ./target/QuizWeb-1.0-SNAPSHOT.war:/usr/local/tomcat/webapps/quizWeb.war
+        - war_deploy:/usr/local/tomcat/webapps
+        # - ./target/quizWeb.war:/usr/local/tomcat/webapps/quizWeb.war
         # - images:/usr/local/tomcat/webapps/quizWeb/WEB-INF/classes/static/img
       networks:
         develop_net:
@@ -66,5 +68,6 @@
           - subnet: 172.22.0.1/24
 
   volumes:
+    war_deploy:
     react_zone:
     images:    
