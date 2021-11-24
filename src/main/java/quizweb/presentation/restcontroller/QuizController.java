@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import quizweb.domain.servrice.CreateQuizService;
-import quizweb.domain.servrice.GetQuizService;
-import quizweb.domain.servrice.valueobject.QuizesInfo;
+import quizweb.domain.service.CreateQuizService;
+import quizweb.domain.service.GetQuizService;
+import quizweb.domain.service.valueobject.QuizesInfo;
 import quizweb.presentation.request.CreateQuizRequest;
 import quizweb.presentation.request.GetQuizRequest;
 

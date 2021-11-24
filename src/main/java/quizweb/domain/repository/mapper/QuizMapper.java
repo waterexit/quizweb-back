@@ -6,7 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import quizweb.domain.repository.entity.Quiz;
-import quizweb.domain.servrice.valueobject.SearchCondition;
+import quizweb.domain.service.valueobject.SearchCondition;
 
 @Mapper
 public interface QuizMapper {

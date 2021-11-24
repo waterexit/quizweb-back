@@ -1,4 +1,4 @@
-package quizweb.domain.servrice.valueobject;
+package quizweb.domain.service.valueobject;
 
 import java.util.ArrayList;
 import java.util.List;

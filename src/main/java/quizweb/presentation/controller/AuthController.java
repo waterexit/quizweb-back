@@ -5,7 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import quizweb.domain.servrice.AuthOnTwitterService;
+import quizweb.domain.service.AuthOnTwitterService;
 
 @Controller
 public class AuthController {

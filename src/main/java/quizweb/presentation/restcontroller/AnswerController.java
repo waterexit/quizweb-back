@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import quizweb.domain.servrice.GetAnwerService;
+import quizweb.domain.service.GetAnwerService;
 import quizweb.presentation.request.AnswerRequest;
 
 @RestController

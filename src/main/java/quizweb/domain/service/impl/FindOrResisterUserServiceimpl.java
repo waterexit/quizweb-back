@@ -1,4 +1,4 @@
-package quizweb.domain.servrice.impl;
+package quizweb.domain.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import quizweb.app.authentic.entity.TwitterUser;
 import quizweb.domain.repository.entity.User;
 import quizweb.domain.repository.mapper.UserMapper;
-import quizweb.domain.servrice.FindOrResisterUserService;
+import quizweb.domain.service.FindOrResisterUserService;
 
 @Service
 public class FindOrResisterUserServiceimpl implements FindOrResisterUserService {

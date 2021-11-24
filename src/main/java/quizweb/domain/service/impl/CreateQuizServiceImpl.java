@@ -1,4 +1,4 @@
-package quizweb.domain.servrice.impl;
+package quizweb.domain.service.impl;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -24,7 +24,7 @@ import quizweb.domain.repository.mapper.QuestionMapper;
 import quizweb.domain.repository.mapper.QuizMapper;
 import quizweb.domain.repository.mapper.QuizTaggingMapper;
 import quizweb.domain.repository.mapper.TagMapper;
-import quizweb.domain.servrice.CreateQuizService;
+import quizweb.domain.service.CreateQuizService;
 import quizweb.presentation.request.CreateQuizRequest.CreateQuizParam;
 import quizweb.presentation.request.CreateQuizRequest.CreateQuizParam.CreateChoiceParam;
 import quizweb.presentation.request.CreateQuizRequest.CreateQuizParam.CreateQuestionParam;

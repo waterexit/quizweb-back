@@ -1,6 +1,6 @@
 package quizweb.presentation.request;
 
-import quizweb.domain.servrice.valueobject.SearchCondition;
+import quizweb.domain.service.valueobject.SearchCondition;
 
 public class GetQuizRequest {
 

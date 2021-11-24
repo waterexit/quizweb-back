@@ -10,10 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import quizweb.domain.repository.entity.Tag;
-import quizweb.domain.servrice.GetQuizService;
-import quizweb.domain.servrice.constenum.Order;
-import quizweb.domain.servrice.valueobject.QuizesInfo;
-import quizweb.domain.servrice.valueobject.SearchCondition;
+import quizweb.domain.service.GetQuizService;
+import quizweb.domain.service.constenum.Order;
+import quizweb.domain.service.valueobject.QuizesInfo;
+import quizweb.domain.service.valueobject.SearchCondition;
 import quizweb.presentation.request.GetQuizRequest;
 
 @SpringBootTest

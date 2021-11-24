@@ -1,4 +1,4 @@
-package quizweb.domain.servrice.impl;
+package quizweb.domain.service.impl;
 
 import java.util.List;
 
@@ -9,8 +9,8 @@ import quizweb.domain.repository.entity.Quiz;
 import quizweb.domain.repository.entity.TaggingInfo;
 import quizweb.domain.repository.mapper.QuizMapper;
 import quizweb.domain.repository.mapper.TaggingInfoMapper;
-import quizweb.domain.servrice.GetQuizService;
-import quizweb.domain.servrice.valueobject.QuizesInfo;
+import quizweb.domain.service.GetQuizService;
+import quizweb.domain.service.valueobject.QuizesInfo;
 import quizweb.presentation.request.GetQuizRequest;
 
 @Service

@@ -1,4 +1,4 @@
-package quizweb.domain.servrice.constenum;
+package quizweb.domain.service.constenum;
 
 public enum Order {
     newOrder("id DESC"),

@@ -1,11 +1,11 @@
-package quizweb.domain.servrice.impl;
+package quizweb.domain.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import quizweb.domain.repository.entity.QuizDetail;
 import quizweb.domain.repository.mapper.QuizDetailMapper;
-import quizweb.domain.servrice.GetQuizDetailService;
+import quizweb.domain.service.GetQuizDetailService;
 
 @Service
 public class GetQuizDetailServiceImpl implements GetQuizDetailService {

@@ -1,5 +1,5 @@
-package quizweb.domain.servrice;
+package quizweb.domain.service;
 
 public interface UpdateAnswererInfoService {
-    
+
 }

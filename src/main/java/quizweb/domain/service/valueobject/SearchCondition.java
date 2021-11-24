@@ -1,9 +1,9 @@
-package quizweb.domain.servrice.valueobject;
+package quizweb.domain.service.valueobject;
 
 import java.util.List;
 
 import quizweb.domain.repository.entity.Tag;
-import quizweb.domain.servrice.constenum.Order;
+import quizweb.domain.service.constenum.Order;
 
 public class SearchCondition {
     public SearchCondition(String title, Order order, List<Tag> tags) {

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import quizweb.app.authentic.entity.TwitterUser;
 import quizweb.domain.repository.entity.User;
-import quizweb.domain.servrice.FindOrResisterUserService;
+import quizweb.domain.service.FindOrResisterUserService;
 
 @Controller
 public class LoginController {

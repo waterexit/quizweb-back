@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import quizweb.domain.repository.entity.QuizDetail;
-import quizweb.domain.servrice.GetQuizDetailService;
+import quizweb.domain.service.GetQuizDetailService;
 
 @RestController
 public class QuizDetailController {

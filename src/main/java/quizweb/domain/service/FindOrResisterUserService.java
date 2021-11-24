@@ -1,4 +1,4 @@
-package quizweb.domain.servrice;
+package quizweb.domain.service;
 
 import quizweb.app.authentic.entity.TwitterUser;
 import quizweb.domain.repository.entity.User;
