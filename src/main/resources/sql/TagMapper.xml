@@ -30,6 +30,32 @@
     from tag
     where id = #{id,jdbcType=BIGINT}
   </select>
+
+  <select id="selectByTagContents" parameterType="java.util.List" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tag
+    <where>
+      <if test="list != null and list.size() != 0">
+      tag in
+    <foreach item="tag" collection="list" open="("  close=")" separator=",">
+      #{tag,jdbcType=VARCHAR}
+    </foreach>  
+    </if>
+    </where>
+  </select>
+
+<select id="selectByPrefix" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tag
+    <where>
+    tag LIKE CONCAT(#{content,jdbcType=VARCHAR}, '%')
+    </where>
+    order by num desc
+    limit 10
+  </select>
+  
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     <!--
       WARNING - @mbg.generated
@@ -117,5 +143,13 @@
     set tag = #{tag,jdbcType=VARCHAR},
       num = #{num,jdbcType=BIGINT}
     where id = #{id,jdbcType=BIGINT}
+  </update>
+    <update id="updateNum" parameterType="quizweb.domain.repository.entity.Tag">
+    update tag
+    set num = num + 1
+    where tag in 
+    <foreach item="item" collection="list" open="("  close=")" separator=",">
+      #{item.tag,jdbcType=VARCHAR}
+    </foreach>
   </update>
 </mapper>
