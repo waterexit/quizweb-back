@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="quizweb.domain.repository.mapper.ExpandChoiceMapper">
+  <select id="selectCorrectChoice" parameterType="java.lang.Long" resultMap="quizweb.domain.repository.mapper.base.ChoiceMapper.ResultMapWithBLOBs">
+    select 
+    <include refid="quizweb.domain.repository.mapper.base.ChoiceMapper.Base_Column_List" />
+    ,
+    <include refid="quizweb.domain.repository.mapper.base.ChoiceMapper.Blob_Column_List" />
+    from choice
+    where question_id = #{question_id,jdbcType=BIGINT}
+          and correct_flg = true
+  </select>
+</mapper>

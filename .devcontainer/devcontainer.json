@@ -1,7 +1,7 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.155.1/containers/docker-existing-dockerfile
 {
-	"name": "Existing Dockerfile",
+	"name": "java spring",
 	// Update the 'dockerFile' property if you aren't using the standard 'Dockerfile' filename.
 	
 	// // Sets the run context to one level up instead of the .devcontainer folder.
@@ -13,11 +13,11 @@
 	"dockerComposeFile": "../dev-compose.yml",
 	"service": "develop",
 	"workspaceFolder":"/workspaces/quizweb",
-
+	"initializeCommand": "python3 ./sql/testData/createInsertQuery.py",
 	// "workspaceFolder": "/workspaces/quizweb",
 	// Set *default* container specific settings.json values on container create.
 	"settings": { 
-		"terminal.integrated.defaultProfile.linux": "/bin/bash",
+		"terminal.integrated.defaultProfile.linux": "/bin/sh",
 		"java.home": "/usr/local/openjdk-11",
 		"maven.executable.path": "/bin/mvn"
 	},

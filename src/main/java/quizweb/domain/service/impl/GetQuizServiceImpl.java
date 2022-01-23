@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import quizweb.domain.repository.entity.Quiz;
 import quizweb.domain.repository.entity.TaggingInfo;
-import quizweb.domain.repository.mapper.QuizMapper;
+import quizweb.domain.repository.mapper.ExpandQuizMapper;
 import quizweb.domain.repository.mapper.TaggingInfoMapper;
 import quizweb.domain.service.GetQuizService;
 import quizweb.domain.service.valueobject.QuizesInfo;
@@ -17,23 +17,17 @@ import quizweb.presentation.request.GetQuizRequest;
 public class GetQuizServiceImpl implements GetQuizService {
 
     @Autowired
-    public GetQuizServiceImpl(QuizMapper quizMapper, TaggingInfoMapper taggingInfoMapper) {
+    public GetQuizServiceImpl(ExpandQuizMapper quizMapper, TaggingInfoMapper taggingInfoMapper) {
         this.quizMapper = quizMapper;
         this.taggingInfoMapper = taggingInfoMapper;
     }
 
-    QuizMapper quizMapper;
+    ExpandQuizMapper quizMapper;
 
     TaggingInfoMapper taggingInfoMapper;
 
     @Override
     public QuizesInfo getQuizList(GetQuizRequest request) {
-
-        // String title = request.getSearchCondition().getTitle();
-        // Order order = request.getSearchCondition().getOrder();
-        // String tag = request.getSearchCondition().getTag();
-
-        // SearchCondition searchCondition = new SearchCondition(title, order, tag);
 
         int count = quizMapper.count(request.getSearchCondition());
         int limit = request.getFetchSize();

@@ -25,7 +25,7 @@ public class GetQuestionServiceTest {
     public void searchByTitle() {
 
         GetQuizRequest request = new GetQuizRequest();
-        SearchCondition searchConditions = new SearchCondition("進撃の巨人", Order.newOrder, null);
+        SearchCondition searchConditions = new SearchCondition("進撃の巨人", Order.newOrder, null , null);
 
         request.setSearchConditions(searchConditions);
         request.setPage(1);
@@ -48,7 +48,7 @@ public class GetQuestionServiceTest {
         t1.setTag("漫画");
 
         tags.add(t1);
-        SearchCondition searchConditions = new SearchCondition("", Order.newOrder, tags);
+        SearchCondition searchConditions = new SearchCondition("", Order.newOrder, tags, null);
 
         request.setSearchConditions(searchConditions);
         request.setPage(1);

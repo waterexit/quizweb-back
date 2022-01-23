@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="quizweb.domain.repository.mapper.ExpandQuizMapper">
+  
+  <select id="count" resultType="int">
+    select
+      count(*)
+    from quiz
+  <where>
+      <if test="searchCondition.title != null">    
+        AND title LIKE CONCAT('%', #{searchCondition.title,jdbcType=VARCHAR}, '%')
+      </if>
+    </where> 
+  </select>
+  
+  <select id="fetchQuizes" resultMap="quizweb.domain.repository.mapper.base.QuizMapper.BaseResultMap">
+    select
+    <include refid="quizweb.domain.repository.mapper.base.QuizMapper.Base_Column_List" />
+    from quiz
+    <if test="searchCondition.tags != null and searchCondition.tags.size() > 0">    
+      inner join quiz_tagging on quiz.id = quiz_tagging.quiz_id
+      inner join tag on quiz_tagging.tag_id = tag.id 
+    </if>
+    <where>
+      <if test="searchCondition.title != null and !searchCondition.title.isEmpty()">    
+        AND title LIKE CONCAT('%', #{searchCondition.title,jdbcType=VARCHAR}, '%')
+      </if>
+      <if test="searchCondition.tags != null and searchCondition.tags.size > 0">    
+        tag.tag in
+        <foreach item="item" collection="searchCondition.tags"  open="(" separator="," close=")">
+           #{item.tag,jdbcType=VARCHAR}
+        </foreach>
+      </if>
+    </where> 
+    order by
+      ${searchCondition.order.value}
+    limit
+      #{limit}
+    offset
+      #{offset}
+  </select>
+  </mapper>

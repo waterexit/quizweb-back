@@ -2,7 +2,6 @@ package quizweb.domain.repository.entity;
 
 public class User {
 
-    
     private long id;
 
     private String name;

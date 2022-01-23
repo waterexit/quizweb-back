@@ -19,11 +19,11 @@ import quizweb.domain.repository.entity.Question;
 import quizweb.domain.repository.entity.Quiz;
 import quizweb.domain.repository.entity.QuizTagging;
 import quizweb.domain.repository.entity.Tag;
-import quizweb.domain.repository.mapper.ChoiceMapper;
-import quizweb.domain.repository.mapper.QuestionMapper;
-import quizweb.domain.repository.mapper.QuizMapper;
+import quizweb.domain.repository.mapper.base.ChoiceMapper;
+import quizweb.domain.repository.mapper.base.QuizMapper;
 import quizweb.domain.repository.mapper.QuizTaggingMapper;
 import quizweb.domain.repository.mapper.TagMapper;
+import quizweb.domain.repository.mapper.base.QuestionMapper;
 import quizweb.domain.service.CreateQuizService;
 import quizweb.presentation.request.CreateQuizRequest.CreateQuizParam;
 import quizweb.presentation.request.CreateQuizRequest.CreateQuizParam.CreateChoiceParam;
@@ -103,7 +103,7 @@ public class CreateQuizServiceImpl implements CreateQuizService {
             question.setQuizId(quizId);
             question.setNum(i + 1);
             question.setContent(questionParam.getContent());
-            question.setChoiceType(questionParam.getChoiceType().toString());
+            question.setChoicetype(questionParam.getChoiceType().toString());
             questionMapper.insert(question);
             insertChoice(questionParam.getChoiceType(), question.getId(), questionParam.getChoices());
         }
