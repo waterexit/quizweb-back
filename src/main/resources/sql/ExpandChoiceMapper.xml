@@ -10,4 +10,8 @@
     where question_id = #{question_id,jdbcType=BIGINT}
           and correct_flg = true
   </select>
+  <delete id="deleteByQuizId" parameterType="java.lang.Long">
+    delete from question
+    where quiz_id = #{quizId,jdbcType=BIGINT}
+  </delete>
 </mapper>

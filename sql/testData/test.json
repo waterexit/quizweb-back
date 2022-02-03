@@ -27,20 +27,20 @@
 
     ],
  "choice":[
-    {"id":1,"question_Id":1,"selection_no":1,"content":"10m","correct_flg":false},
-    {"id":2,"question_Id":1,"selection_no":2,"content":"60m","correct_flg":false},
-    {"id":3,"question_Id":1,"selection_no":3,"content":"16m","correct_flg":true},
-    {"id":4,"question_Id":1,"selection_no":4,"content":"23m","correct_flg":false},
-    {"id":5,"question_Id":2,"selection_no":1,"content":"赤","correct_flg":true},
-    {"id":6,"question_Id":2,"selection_no":2,"content":"黒","correct_flg":false},
-    {"id":7,"question_Id":2,"selection_no":3,"content":"紫","correct_flg":false},
-    {"id":8,"question_Id":3,"selection_no":1,"content":"マルセル","correct_flg":true},
-    {"id":9,"question_Id":3,"selection_no":2,"content":"マガト","correct_flg":false},
-    {"id":10,"question_Id":3,"selection_no":3,"content":"ボッコ","correct_flg":false},
-    {"id":11,"question_Id":3,"selection_no":4,"content":"ニケ","correct_flg":false},
-    {"id":12,"question_Id":4,"selection_no":1,"content":"クレバー","correct_flg":false},
-    {"id":13,"question_Id":4,"selection_no":2,"content":"クサバー","correct_flg":false},
-    {"id":14,"question_Id":4,"selection_no":3,"content":"クレヴァー","correct_flg":false},
-    {"id":15,"question_Id":4,"selection_no":4,"content":"クサヴァー","correct_flg":true}
+    {"id":1,"question_Id":1,"selection_no":1,"quiz_id":1,"content":"10m","correct_flg":false},
+    {"id":2,"question_Id":1,"selection_no":2,"quiz_id":1,"content":"60m","correct_flg":false},
+    {"id":3,"question_Id":1,"selection_no":3,"quiz_id":1,"content":"16m","correct_flg":true},
+    {"id":4,"question_Id":1,"selection_no":4,"quiz_id":1,"content":"23m","correct_flg":false},
+    {"id":5,"question_Id":2,"selection_no":1,"quiz_id":1,"content":"赤","correct_flg":true},
+    {"id":6,"question_Id":2,"selection_no":2,"quiz_id":1,"content":"黒","correct_flg":false},
+    {"id":7,"question_Id":2,"selection_no":3,"quiz_id":1,"content":"紫","correct_flg":false},
+    {"id":8,"question_Id":3,"selection_no":1,"quiz_id":2,"content":"マルセル","correct_flg":true},
+    {"id":9,"question_Id":3,"selection_no":2,"quiz_id":2,"content":"マガト","correct_flg":false},
+    {"id":10,"question_Id":3,"selection_no":3,"quiz_id":2,"content":"ボッコ","correct_flg":false},
+    {"id":11,"question_Id":3,"selection_no":4,"quiz_id":2,"content":"ニケ","correct_flg":false},
+    {"id":12,"question_Id":4,"selection_no":1,"quiz_id":2,"content":"クレバー","correct_flg":false},
+    {"id":13,"question_Id":4,"selection_no":2,"quiz_id":2,"content":"クサバー","correct_flg":false},
+    {"id":14,"question_Id":4,"selection_no":3,"quiz_id":2,"content":"クレヴァー","correct_flg":false},
+    {"id":15,"question_Id":4,"selection_no":4,"quiz_id":2,"content":"クサヴァー","correct_flg":true}
 ]
 }

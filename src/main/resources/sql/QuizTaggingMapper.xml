@@ -51,4 +51,10 @@
       </if>
     </trim>
   </insert>
+
+  <delete id="deleteByQuizId" parameterType="java.lang.Long">
+    delete
+    from quiz_tagging
+    where quiz_id = #{tagId,jdbcType=BIGINT}  
+  </delete>
 </mapper>

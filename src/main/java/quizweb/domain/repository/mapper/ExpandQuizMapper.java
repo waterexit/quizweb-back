@@ -6,10 +6,11 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import quizweb.domain.repository.entity.Quiz;
+import quizweb.domain.repository.mapper.base.QuizMapper;
 import quizweb.domain.service.valueobject.SearchCondition;
 
 @Mapper
-public interface ExpandQuizMapper {
+public interface ExpandQuizMapper extends QuizMapper{
     int count(@Param("searchCondition") SearchCondition searchCondition);
 
     List<Quiz> fetchQuizes(@Param("searchCondition") SearchCondition searchCondition,

@@ -15,6 +15,6 @@ public class QuizDetailMapperTest {
   @Test
   public void test() {
     QuizDetail qd = quizDetailMapper.getQuizDetail(1l);
-    System.out.println(qd.getQuestions().get(0).getContent());
+    System.out.println(qd.getQuestions().get(1).getContent());
   }
 }

@@ -7,6 +7,7 @@
       count(*)
     from quiz
   <where>
+      publish = true
       <if test="searchCondition.title != null">    
         AND title LIKE CONCAT('%', #{searchCondition.title,jdbcType=VARCHAR}, '%')
       </if>
@@ -22,6 +23,7 @@
       inner join tag on quiz_tagging.tag_id = tag.id 
     </if>
     <where>
+      publish = true
       <if test="searchCondition.title != null and !searchCondition.title.isEmpty()">    
         AND title LIKE CONCAT('%', #{searchCondition.title,jdbcType=VARCHAR}, '%')
       </if>
@@ -39,4 +41,5 @@
     offset
       #{offset}
   </select>
-  </mapper>
+
+</mapper>

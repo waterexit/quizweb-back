@@ -8,7 +8,7 @@
 		<plugin type="org.mybatis.generator.plugins.UnmergeableXmlMappersPlugin" />
 		<jdbcConnection connectionURL="jdbc:mysql://172.22.0.3:3306/QUIZ" driverClass="com.mysql.cj.jdbc.Driver" password="user" userId="user" />
 		<javaModelGenerator targetPackage="quizweb.domain.repository.entity" targetProject="/workspaces/quizweb/src/main/java" />
-		<sqlMapGenerator targetPackage="sql" targetProject="/workspaces/quizweb/src/main/resources" />
+		<sqlMapGenerator targetPackage="sql/base" targetProject="/workspaces/quizweb/src/main/resources" />
 		<javaClientGenerator targetPackage="quizweb.domain.repository.mapper.base" targetProject="/workspaces/quizweb/src/main/java" type="XMLMAPPER" />
 		<table schema="QUIZ" modelType="flat" tableName="quiz" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableCountByExample="false" selectByExampleQueryId="false" />
 		<table schema="QUIZ" modelType="flat" tableName="question" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableCountByExample="false" selectByExampleQueryId="false" />
