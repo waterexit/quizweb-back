@@ -5,7 +5,7 @@
       image: maven:3.8.1-jdk-11
       volumes:
       - .:/workspaces/quizweb
-      - react_zone:/workspaces/quizweb/src/main/resources/static/react
+      # - react_zone:/workspaces/quizweb/src/main/resources/static/react
       - war_deploy:/workspaces/quizweb/build/deploy
       networks:
         develop_net:
@@ -30,21 +30,8 @@
           ipv4_address: 172.22.0.3
       ports:
       - '3306:3306'
-    apache:
-      depends_on:
-        - mysql
-      image: httpd:latest
-      ports:
-      - '80:80'
-      volumes:
-      - ./httpd.conf:/usr/local/apache2/conf/httpd.conf
-      networks:
-        develop_net:
-          ipv4_address: 172.22.0.4
     tomcat:
-      depends_on:
-        - apache
-      image: tomcat:latest
+      image: tomcat:9-jdk8-temurin
       ports:
       - '8080:8080'
       - '8081:8081'
