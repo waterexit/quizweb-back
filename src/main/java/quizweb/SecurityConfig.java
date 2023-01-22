@@ -24,20 +24,32 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     AuthenticationUserDetailsService<PreAuthenticatedAuthenticationToken> authenticationUserDetailsService;
  
     
+    /**
+     * リクエストパラメータから認証情報を取得するためのフィルターを返却する
+     * @return 認証に使用するフィルター
+     * @throws Exception
+     */
     public AbstractPreAuthenticatedProcessingFilter preAuthenticatedProcessingFilter() throws Exception {
         MyPreAuthenticatedProcessingFilter filter = new MyPreAuthenticatedProcessingFilter();
         filter.setAuthenticationManager(authenticationManager());
         return filter;
     }
     
+    /**
+     * 認証に使用するプロバイダーを作成する
+     * @return 認証プロバイダー
+     */
     public PreAuthenticatedAuthenticationProvider preAuthenticatedAuthenticationProvider() {
         PreAuthenticatedAuthenticationProvider provider = new PreAuthenticatedAuthenticationProvider();
+        // ユーザ認証を行うサービス設定
         provider.setPreAuthenticatedUserDetailsService(authenticationUserDetailsService);
+        // 認証されたユーザをチェックする処理を設定（ここではユーザ情報がnullかどうかをチェック）
         provider.setUserDetailsChecker(new AccountStatusUserDetailsChecker());
         return provider;
     }
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        // 認証プロバイダーを設定する
         auth.authenticationProvider(preAuthenticatedAuthenticationProvider());
     }
     @Override
@@ -49,13 +61,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()).and()
             .authorizeRequests()
-                .antMatchers("/").authenticated()
+                // マッチするURLの場合認証処理を行う
+                .antMatchers("/login").authenticated()
+                // それ以外は認証を行わない
                 .anyRequest().permitAll()
             .and()
                 .logout().logoutUrl("/logout")
             .and()
-                .addFilter(preAuthenticatedProcessingFilter())
-                .exceptionHandling()
-                .authenticationEntryPoint(new LoginUrlAuthenticationEntryPoint("/"));
+                // 認証時のフィルターを追加する（本クラスで定義）
+                .addFilter(preAuthenticatedProcessingFilter());
+                // .exceptionHandling()
+                // .authenticationEntryPoint(new LoginUrlAuthenticationEntryPoint("/"));
     }
 }
