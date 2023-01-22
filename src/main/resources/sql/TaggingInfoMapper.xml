@@ -17,10 +17,13 @@
           quiz_tagging
         inner join tag
           on quiz_tagging.tag_id=tag.id 
-        where
-          quiz_tagging.quiz_Id in
-          <foreach item="item" collection="list"  open="(" separator="," close=")">
-           #{item.id,jdbcType=BIGINT} 
-          </foreach>
+        <if test="list != null and list.size() != 0">
+          <where>
+            quiz_tagging.quiz_id in
+            <foreach item="item" collection="list"  open="(" separator="," close=")">
+            #{item.id,jdbcType=BIGINT} 
+            </foreach>
+          </where>
+        </if>
       </select>
 </mapper>
