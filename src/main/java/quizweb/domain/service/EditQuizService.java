@@ -6,6 +6,8 @@ import quizweb.presentation.request.CreateQuizRequest.CreateQuizParam;
 
 public interface EditQuizService {
     
-    public void createQuiz(CreateQuizParam createQuizParam) throws IOException;
+    public void editQuiz(CreateQuizParam createQuizParam) throws IOException;
 
+    public void publish(Long quizId);
+    
 }
