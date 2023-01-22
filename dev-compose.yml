@@ -7,6 +7,7 @@
       - .:/workspaces/quizweb
       # - react_zone:/workspaces/quizweb/src/main/resources/static/react
       - war_deploy:/workspaces/quizweb/build/deploy
+      - /home/water/.ssh:/root/.ssh
       networks:
         develop_net:
           ipv4_address: 172.22.0.10
