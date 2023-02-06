@@ -18,8 +18,7 @@ public class GetQuizDetailServiceImpl implements GetQuizDetailService {
     QuizDetailMapper quizDetailMapper;
 
     @Override
-    public QuizDetail getQuizDeteail(String id) {
-        quizDetailMapper.getQuizDetail(Long.parseLong(id));
+    public QuizDetail getQuizDetail(String id) {
         return quizDetailMapper.getQuizDetail(Long.parseLong(id));
     }
 

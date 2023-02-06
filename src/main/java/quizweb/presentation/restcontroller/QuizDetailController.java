@@ -23,7 +23,7 @@ public class QuizDetailController {
     @ResponseBody
     public QuizDetail getQuestionDetail(@RequestParam("quizId") String id) {
     
-        QuizDetail quizDetail = getQuizDetailService.getQuizDeteail(id);
+        QuizDetail quizDetail = getQuizDetailService.getQuizDetail(id);
         return quizDetail;
     }
 
