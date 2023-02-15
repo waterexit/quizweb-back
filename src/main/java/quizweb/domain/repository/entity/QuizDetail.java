@@ -12,7 +12,7 @@ public class QuizDetail extends Quiz {
         return questions;
     }
 
-    public List<Tag> geTags() {
+    public List<Tag> getTags() {
         return tags;
     }
 

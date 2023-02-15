@@ -2,7 +2,7 @@ package quizweb.domain.service;
 
 import java.io.IOException;
 
-import quizweb.presentation.request.CreateQuizRequest.CreateQuizParam;
+import quizweb.object.CreateQuizParam;
 
 public interface CreateQuizService {
     

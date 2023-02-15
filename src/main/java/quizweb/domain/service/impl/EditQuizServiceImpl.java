@@ -15,42 +15,77 @@ import quizweb.common.properties.ApplicationProperties;
 import quizweb.common.util.FileUtil;
 import quizweb.domain.repository.entity.Choice;
 import quizweb.domain.repository.entity.Question;
+import quizweb.domain.repository.entity.QuestionDetail;
 import quizweb.domain.repository.entity.Quiz;
+import quizweb.domain.repository.entity.QuizDetail;
 import quizweb.domain.repository.entity.QuizTagging;
 import quizweb.domain.repository.entity.Tag;
 import quizweb.domain.repository.mapper.ExpandChoiceMapper;
 import quizweb.domain.repository.mapper.ExpandQuestionMapper;
+import quizweb.domain.repository.mapper.QuizDetailMapper;
 import quizweb.domain.repository.mapper.QuizTaggingMapper;
 import quizweb.domain.repository.mapper.TagMapper;
 import quizweb.domain.repository.mapper.base.QuizMapper;
 import quizweb.domain.service.EditQuizService;
-import quizweb.presentation.request.CreateQuizRequest.CreateQuizParam;
-import quizweb.presentation.request.CreateQuizRequest.CreateQuizParam.CreateChoiceParam;
-import quizweb.presentation.request.CreateQuizRequest.CreateQuizParam.CreateQuestionParam;
+import quizweb.object.CreateChoiceParam;
+import quizweb.object.CreateQuestionParam;
+import quizweb.object.CreateQuizParam;
 
 @Service
-public class EditQuizServiceImpl implements EditQuizService{
+public class EditQuizServiceImpl implements EditQuizService {
     @Autowired
-    public EditQuizServiceImpl(QuizMapper quizMapper, ExpandQuestionMapper questionMapper, ExpandChoiceMapper choiceMapper,
-    ApplicationProperties applicationProperties, TagMapper tagMapper, QuizTaggingMapper quizTaggingMapper) {
+    public EditQuizServiceImpl(QuizMapper quizMapper, QuizDetailMapper quizDetailMapper,
+            ExpandQuestionMapper questionMapper, ExpandChoiceMapper choiceMapper,
+            ApplicationProperties applicationProperties, TagMapper tagMapper, QuizTaggingMapper quizTaggingMapper) {
         this.quizMapper = quizMapper;
+        this.quizDetailMapper = quizDetailMapper;
         this.questionMapper = questionMapper;
         this.choiceMapper = choiceMapper;
         this.applicationProperties = applicationProperties;
         this.tagMapper = tagMapper;
         this.quizTaggingMapper = quizTaggingMapper;
     }
-    
+
     private QuizMapper quizMapper;
+    private QuizDetailMapper quizDetailMapper;
     private ExpandQuestionMapper questionMapper;
     private ExpandChoiceMapper choiceMapper;
     private TagMapper tagMapper;
     private QuizTaggingMapper quizTaggingMapper;
     private ApplicationProperties applicationProperties;
-    
+
+    @Override
+    public CreateQuizParam getEditParam(long id) {
+        QuizDetail quizDetail = quizDetailMapper.getQuizDetail(id);
+        CreateQuizParam ret = new CreateQuizParam();
+        ret.setTitle(quizDetail.getTitle());
+        ret.setDescription(quizDetail.getDescription());
+        ret.setThumbnail(quizDetail.getThumbnail());
+        ret.setTags(quizDetail.getTags());
+        List<CreateQuestionParam> retQuestionList = new ArrayList<>();
+        for (QuestionDetail question : quizDetail.getQuestions()) {
+            CreateQuestionParam tmpQuestion = new CreateQuestionParam();
+            tmpQuestion.setContent(question.getContent());
+            tmpQuestion.setComment(question.getComment());
+            tmpQuestion.setChoiceType(question.getChoiceType());
+            List<CreateChoiceParam> retChoiceList = new ArrayList<>();
+            for (Choice choice : question.getChoices()) {
+                CreateChoiceParam tmpChoice = new CreateChoiceParam();
+                tmpChoice.setContent(choice.getContent());
+                tmpChoice.setCorrectFlg(choice.getCorrectFlg());
+                retChoiceList.add(tmpChoice);
+            }
+            tmpQuestion.setChoices(retChoiceList);
+            retQuestionList.add(tmpQuestion);
+        }
+        ret.setQuestions(retQuestionList);
+
+        return ret;
+    }
+
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public void editQuiz(CreateQuizParam createQuizParam) throws IOException {      
+    public void editQuiz(CreateQuizParam createQuizParam) throws IOException {
         Quiz quiz = quizMapper.selectByPrimaryKey(createQuizParam.getId());
 
         String fileName = FileUtil.saveImageByBase64(applicationProperties.getImageThumbnailPath(),
@@ -74,7 +109,7 @@ public class EditQuizServiceImpl implements EditQuizService{
 
     @Override
     public void publish(Long quizId) {
-        Quiz quiz = new  Quiz(); 
+        Quiz quiz = new Quiz();
         quiz.setId(quizId);
         quiz.setPublish(true);
         quizMapper.updateByPrimaryKeySelective(quiz);
@@ -91,13 +126,13 @@ public class EditQuizServiceImpl implements EditQuizService{
         return Stream.concat(insertTags.stream(), updateTags.stream()).collect(Collectors.toList());
     }
 
-    private void deleteRelativeTables(Long quizId){
+    private void deleteRelativeTables(Long quizId) {
         quizTaggingMapper.deleteByQuizId(quizId);
         questionMapper.deleteByQuizId(quizId);
         choiceMapper.deleteByQuizId(quizId);
     }
 
-    private void insertQuizTagging(Long quizId, List<Tag> tags) {    
+    private void insertQuizTagging(Long quizId, List<Tag> tags) {
         List<QuizTagging> quizTaggings = new ArrayList<>();
         for (Tag tag : tags) {
             QuizTagging quizTagging = new QuizTagging();

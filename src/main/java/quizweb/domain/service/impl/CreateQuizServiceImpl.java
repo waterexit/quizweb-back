@@ -25,9 +25,9 @@ import quizweb.domain.repository.mapper.QuizTaggingMapper;
 import quizweb.domain.repository.mapper.TagMapper;
 import quizweb.domain.repository.mapper.base.QuestionMapper;
 import quizweb.domain.service.CreateQuizService;
-import quizweb.presentation.request.CreateQuizRequest.CreateQuizParam;
-import quizweb.presentation.request.CreateQuizRequest.CreateQuizParam.CreateChoiceParam;
-import quizweb.presentation.request.CreateQuizRequest.CreateQuizParam.CreateQuestionParam;
+import quizweb.object.CreateChoiceParam;
+import quizweb.object.CreateQuestionParam;
+import quizweb.object.CreateQuizParam;
 
 @Service
 public class CreateQuizServiceImpl implements CreateQuizService {
@@ -54,7 +54,7 @@ public class CreateQuizServiceImpl implements CreateQuizService {
         TwitterUser loginUser = (TwitterUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         Quiz quiz = new Quiz();
         quiz.setCreateUserid(loginUser.getUserId());
-        quiz.setCategory(createQuizParam.getCategory());
+        // quiz.setCategory(createQuizParam.getCategory());
 
         String fileName = FileUtil.saveImageByBase64(applicationProperties.getImageThumbnailPath(),
                 createQuizParam.getThumbnail());
@@ -103,7 +103,7 @@ public class CreateQuizServiceImpl implements CreateQuizService {
             question.setQuizId(quizId);
             question.setNum(i + 1);
             question.setContent(questionParam.getContent());
-            question.setChoicetype(questionParam.getChoiceType().toString());
+            question.setChoiceType(questionParam.getChoiceType().toString());
             questionMapper.insert(question);
             insertChoice(questionParam.getChoiceType(), question.getId(), questionParam.getChoices());
         }
