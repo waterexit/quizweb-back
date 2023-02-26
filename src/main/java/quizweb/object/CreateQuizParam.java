@@ -21,6 +21,10 @@ public class CreateQuizParam {
         return id;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public List<Tag> getTags() {
         return tags;
     }

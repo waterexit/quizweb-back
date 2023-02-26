@@ -71,7 +71,7 @@
       choiceType)
     values (#{id,jdbcType=BIGINT}, #{quizId,jdbcType=BIGINT}, #{num,jdbcType=INTEGER}, 
       #{name,jdbcType=VARCHAR}, #{content,jdbcType=LONGVARCHAR}, #{comment,jdbcType=LONGVARCHAR}, 
-      #{choicetype,jdbcType=LONGVARCHAR})
+      #{choiceType,jdbcType=LONGVARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="quizweb.domain.repository.entity.Question">
     <!--
@@ -99,7 +99,7 @@
       <if test="comment != null">
         comment,
       </if>
-      <if test="choicetype != null">
+      <if test="choiceType != null">
         choiceType,
       </if>
     </trim>
@@ -122,8 +122,8 @@
       <if test="comment != null">
         #{comment,jdbcType=LONGVARCHAR},
       </if>
-      <if test="choicetype != null">
-        #{choicetype,jdbcType=LONGVARCHAR},
+      <if test="choiceType != null">
+        #{choiceType,jdbcType=LONGVARCHAR},
       </if>
     </trim>
   </insert>
@@ -150,8 +150,8 @@
       <if test="comment != null">
         comment = #{comment,jdbcType=LONGVARCHAR},
       </if>
-      <if test="choicetype != null">
-        choiceType = #{choicetype,jdbcType=LONGVARCHAR},
+      <if test="choiceType != null">
+        choiceType = #{choiceType,jdbcType=LONGVARCHAR},
       </if>
     </set>
     where id = #{id,jdbcType=BIGINT}
@@ -168,7 +168,7 @@
       name = #{name,jdbcType=VARCHAR},
       content = #{content,jdbcType=LONGVARCHAR},
       comment = #{comment,jdbcType=LONGVARCHAR},
-      choiceType = #{choicetype,jdbcType=LONGVARCHAR}
+      choiceType = #{choiceType,jdbcType=LONGVARCHAR}
     where id = #{id,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="quizweb.domain.repository.entity.Question">

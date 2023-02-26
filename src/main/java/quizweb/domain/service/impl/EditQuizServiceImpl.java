@@ -58,6 +58,7 @@ public class EditQuizServiceImpl implements EditQuizService {
     public CreateQuizParam getEditParam(long id) {
         QuizDetail quizDetail = quizDetailMapper.getQuizDetail(id);
         CreateQuizParam ret = new CreateQuizParam();
+        ret.setId(quizDetail.getId());
         ret.setTitle(quizDetail.getTitle());
         ret.setDescription(quizDetail.getDescription());
         ret.setThumbnail(quizDetail.getThumbnail());
