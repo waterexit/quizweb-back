@@ -20,7 +20,7 @@
     -->
     <result column="content" jdbcType="LONGVARCHAR" property="content" />
     <result column="comment" jdbcType="LONGVARCHAR" property="comment" />
-    <result column="choiceType" jdbcType="LONGVARCHAR" property="choicetype" />
+    <result column="choiceType" jdbcType="LONGVARCHAR" property="choiceType" />
   </resultMap>
   <sql id="Base_Column_List">
     <!--
