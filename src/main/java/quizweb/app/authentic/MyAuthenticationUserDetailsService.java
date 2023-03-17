@@ -15,33 +15,29 @@ import quizweb.domain.instruct.valueobject.response.TwitterVerifyCredentialsResp
 
 @Component
 public class MyAuthenticationUserDetailsService
-        implements AuthenticationUserDetailsService<PreAuthenticatedAuthenticationToken> {
+                implements AuthenticationUserDetailsService<PreAuthenticatedAuthenticationToken> {
 
-    @Autowired
-    TwitterAccessTokenGateway twitterAccessTokenGateway;
+        @Autowired
+        TwitterAccessTokenGateway twitterAccessTokenGateway;
 
-    @Autowired
-    TwitterVerifyCredentialsGateway twitterVerifyCredentialsGateway;
+        @Autowired
+        TwitterVerifyCredentialsGateway twitterVerifyCredentialsGateway;
 
+        @Override
+        public UserDetails loadUserDetails(PreAuthenticatedAuthenticationToken token) throws UsernameNotFoundException {
 
-    @Override
-    public UserDetails loadUserDetails(PreAuthenticatedAuthenticationToken token) throws UsernameNotFoundException {
+                String oauthToken = (String) token.getPrincipal();
+                String oauthVerifier = (String) token.getCredentials();
 
-        String oauthToken = (String) token.getPrincipal();
-        String oauthVerifier = (String) token.getCredentials();
+                TwitterAccessTokenResponse twitterAccessTokenResponse = twitterAccessTokenGateway.fetchAPI(oauthToken,
+                                oauthVerifier);
 
-        TwitterAccessTokenResponse twitterAccessTokenResponse = twitterAccessTokenGateway.fetchAPI(oauthToken,
-                oauthVerifier);
-        
-        TwitterVerifyCredentialsResponse twitterVerifyCredentialsResponse = twitterVerifyCredentialsGateway
-                .fetchAPI(twitterAccessTokenResponse.getOauthToken(), twitterAccessTokenResponse.getOauthTokenSecret());
+                TwitterVerifyCredentialsResponse twitterVerifyCredentialsResponse = twitterVerifyCredentialsGateway
+                                .fetchAPI(twitterAccessTokenResponse.getOauthToken(),
+                                                twitterAccessTokenResponse.getOauthTokenSecret());
 
-        TwitterUser twitterUser = new TwitterUser(twitterVerifyCredentialsResponse);
+                TwitterUser twitterUser = new TwitterUser(twitterVerifyCredentialsResponse);
 
-        return twitterUser;
-    }
-
-
-
-
+                return twitterUser;
+        }
 }
