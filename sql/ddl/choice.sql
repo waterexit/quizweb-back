@@ -3,4 +3,5 @@ question_id BIGINT,
 quiz_id BIGINT,
 selection_no INT,
 content TEXT,
-correct_flg BOOLEAN) AUTO_INCREMENT = 20;
+correct_flg BOOLEAN,
+create_userid BIGINT) AUTO_INCREMENT = 20;

@@ -4,7 +4,8 @@ num int,
 name varchar(1000),
 content text,
 comment text,
-choiceType text
+choiceType text,
+create_userid BIGINT
 ) AUTO_INCREMENT = 20;
 INSERT INTO question (id,quiz_id,num,content,comment) VALUES (1,1,1,"エレンが巨人になった時の身長は何m？","16m");
 INSERT INTO question (id,quiz_id,num,content) VALUES (2,1,2,"ミカサの巻いているマフラーの色は？");

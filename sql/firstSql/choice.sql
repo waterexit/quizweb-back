@@ -3,7 +3,8 @@ question_id BIGINT,
 quiz_id BIGINT,
 selection_no INT,
 content TEXT,
-correct_flg BOOLEAN) AUTO_INCREMENT = 20;
+correct_flg BOOLEAN,
+create_userid BIGINT) AUTO_INCREMENT = 20;
 INSERT INTO choice (id,question_Id,selection_no,quiz_id,content,correct_flg) VALUES (1,1,1,1,"10m",False);
 INSERT INTO choice (id,question_Id,selection_no,quiz_id,content,correct_flg) VALUES (2,1,2,1,"60m",False);
 INSERT INTO choice (id,question_Id,selection_no,quiz_id,content,correct_flg) VALUES (3,1,3,1,"16m",True);

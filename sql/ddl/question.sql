@@ -4,5 +4,6 @@ num int,
 name varchar(1000),
 content text,
 comment text,
-choiceType text
+choiceType text,
+create_userid BIGINT
 ) AUTO_INCREMENT = 20;
