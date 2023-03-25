@@ -1,13 +1,13 @@
 package quizweb.presentation.request;
 
 public class GetTagRequest {
-   private String prefix;
+    public GetTagRequest(String prefix) {
+        this.prefix = prefix;
+    }
 
-public String getPrefix() {
-    return prefix;
-}
+    private String prefix;
 
-public void setPrefix(String prefix) {
-    this.prefix = prefix;
-} 
+    public String getPrefix() {
+        return prefix;
+    }
 }

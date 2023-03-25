@@ -1,8 +1,17 @@
 package quizweb.presentation.request;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+
 import quizweb.domain.service.valueobject.SearchCondition;
 
 public class GetQuizRequest {
+
+    @JsonCreator
+    public GetQuizRequest(SearchCondition searchConditions, int page, int fetchSize) {
+        this.searchConditions = searchConditions;
+        this.page = page;
+        this.fetchSize = fetchSize;
+    }
 
     private SearchCondition searchConditions;
 
@@ -14,24 +23,11 @@ public class GetQuizRequest {
         return searchConditions;
     }
 
-    public void setSearchConditions(SearchCondition searchConditions) {
-        this.searchConditions = searchConditions;
-    }
-
     public int getPage() {
         return page;
-    }
-
-    public void setPage(int page) {
-        this.page = page;
     }
 
     public int getFetchSize() {
         return fetchSize;
     }
-
-    public void setFetchSize(int fetchSize) {
-        this.fetchSize = fetchSize;
-    }
-
 }

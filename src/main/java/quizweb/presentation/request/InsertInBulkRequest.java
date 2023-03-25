@@ -1,12 +1,9 @@
 package quizweb.presentation.request;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-
 import quizweb.object.CreateQuizParam;
 
-public class CreateQuizRequest {
-    @JsonCreator
-    public CreateQuizRequest(CreateQuizParam createQuizParam) {
+public class InsertInBulkRequest {
+    public InsertInBulkRequest(CreateQuizParam createQuizParam) {
         this.createQuizParam = createQuizParam;
     }
 
