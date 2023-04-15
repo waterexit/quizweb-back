@@ -22,9 +22,9 @@ public class InsertTagServiceImpl implements InsertTagService {
     @Override
     public void insertTag(List<String> contents) {
         TagLists taglists = separateTagList(contents);
-        
+
         tagMapper.insertList(taglists.insertList);
-        tagMapper.updateNum(taglists.updateList);
+        tagMapper.updateNum(taglists.updateList.stream().map(t -> t.getId()).collect(Collectors.toList()));
 
     }
 
@@ -40,7 +40,7 @@ public class InsertTagServiceImpl implements InsertTagService {
     }
 
     TagLists separateTagList(List<String> contents) {
-        List<Tag> updateList = tagMapper.selectByTagContents(contents);
+        List<Tag> updateList = tagMapper.selectListByContentList(contents);
 
         List<Tag> insertList = contents.stream().filter(c -> updateList.stream().noneMatch(t -> t.getTag().equals(c)))
                 .map(c -> {

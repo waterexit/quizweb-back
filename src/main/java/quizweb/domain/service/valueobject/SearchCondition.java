@@ -19,7 +19,7 @@ public class SearchCondition {
 
     private List<Tag> tags;
 
-    private long userId;
+    private Long userId;
 
     public String getTitle() {
         return title;
@@ -33,7 +33,7 @@ public class SearchCondition {
         return tags;
     }
 
-    public long getUserId() {
+    public Long getUserId() {
         return userId;
     }
 

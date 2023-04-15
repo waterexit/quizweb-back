@@ -42,7 +42,7 @@ public class InsertTagServiceTest {
         e2.setTag("exists2");
         existsTags.add(e2);
 
-        Mockito.when(tagMapper.selectByTagContents(Mockito.any())).thenReturn(existsTags);
+        // Mockito.when(tagMapper.selectByTagContents(Mockito.any())).thenReturn(existsTags);
 
         List<String> argList = new ArrayList<>();
         argList.add("content2");

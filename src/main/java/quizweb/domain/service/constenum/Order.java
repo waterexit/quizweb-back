@@ -1,8 +1,8 @@
 package quizweb.domain.service.constenum;
 
 public enum Order {
-    newOrder("id DESC"),
-    oldOrder("id"),
+    newOrder("quiz.id DESC"),
+    oldOrder("quiz.id"),
     viewOrder("answerer_num DESC");
 
     private String value;

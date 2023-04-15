@@ -7,7 +7,7 @@
     <result column="tag" jdbcType="VARCHAR" property="tag" />
     <result column="num" jdbcType="BIGINT" property="num" />
   </resultMap>
-      <select id="getTaggingInfoByQuizId" resultMap="BaseResultMap"  parameterType="quizweb.domain.repository.entity.Quiz">
+      <select id="getTaggingInfoByQuizList" resultMap="BaseResultMap"  parameterType="quizweb.domain.repository.entity.Quiz">
         select
          quiz_tagging.quiz_id, 
          quiz_tagging.tag_id, 
@@ -26,4 +26,20 @@
           </where>
         </if>
       </select>
-</mapper>
+
+      <select id="getTaggingInfoByQuizId" resultMap="BaseResultMap">
+        select
+         quiz_tagging.quiz_id, 
+         quiz_tagging.tag_id, 
+         tag.tag,
+         tag.num 
+        from
+          quiz_tagging
+        inner join tag
+          on quiz_tagging.tag_id=tag.id 
+          <where>
+            id = #{id,jdbcType=BIGINT} 
+          </where>
+      </select>
+
+    </mapper>

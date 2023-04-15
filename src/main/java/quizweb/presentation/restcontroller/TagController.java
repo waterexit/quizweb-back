@@ -3,10 +3,13 @@ package quizweb.presentation.restcontroller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.ResponseStatusException;
 
+import quizweb.common.exception.AuthFailException;
 import quizweb.domain.repository.entity.Tag;
 import quizweb.domain.service.AddTagService;
 import quizweb.domain.service.GetTagService;
@@ -35,6 +38,10 @@ public class TagController {
 
     @PostMapping("/tag/add")
     public void addTag(AddTagRequest req) {
-        addTagService.addTag(req.getQuizId(), req.getTag());
+        try {
+            addTagService.addTag(req.getQuizId(), req.getTag());
+        } catch (AuthFailException e) {
+            throw new ResponseStatusException(HttpStatus.FORBIDDEN);
+        }
     }
 }

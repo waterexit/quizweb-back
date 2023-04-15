@@ -6,17 +6,17 @@ import quizweb.common.enums.ChoiceTypeEnum;
 
 public class CreateQuestionRequest {
     @JsonCreator
-    public CreateQuestionRequest(long quizId, int num, String choiceType) {
+    public CreateQuestionRequest(long quizId, int num, String choicetype) {
         this.quizId = quizId;
         this.num = num;
-        this.choiceType = ChoiceTypeEnum.valueOf(choiceType);
+        this.choicetype = ChoiceTypeEnum.valueOf(choicetype);
     }
 
     private long quizId;
 
     private int num;
 
-    private ChoiceTypeEnum choiceType;
+    private ChoiceTypeEnum choicetype;
 
     public long getQuizId() {
         return quizId;
@@ -27,6 +27,6 @@ public class CreateQuestionRequest {
     }
 
     public ChoiceTypeEnum getChoiceType() {
-        return choiceType;
+        return choicetype;
     }
 }

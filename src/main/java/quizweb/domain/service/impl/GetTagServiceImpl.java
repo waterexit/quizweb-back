@@ -11,15 +11,17 @@ import quizweb.domain.service.GetTagService;
 
 @Service
 public class GetTagServiceImpl implements GetTagService {
-@Autowired
-public GetTagServiceImpl(TagMapper tagMapper){
-    this.tagMapper = tagMapper;
-}
-private TagMapper tagMapper;
+    @Autowired
+    public GetTagServiceImpl(TagMapper tagMapper) {
+        this.tagMapper = tagMapper;
+    }
+
+    private TagMapper tagMapper;
+
     @Override
     public List<Tag> getTagByPrefix(String prefix) {
         List<Tag> tag = tagMapper.selectByPrefix(prefix);
         return tag;
     }
-    
+
 }

@@ -1,23 +1,24 @@
 package quizweb.presentation.request;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+
 public class AnswerRequest {
-    private long questionId;
-    private long selecselectiionNo;
-
-    public void setQuestionId(long questionId) {
+    @JsonCreator
+    public AnswerRequest(long questionId, long selectionNo) {
         this.questionId = questionId;
+        this.selectionNo = selectionNo;
     }
 
-    public void setSelecselectiionNo(long selecselectiionNo) {
-        this.selecselectiionNo = selecselectiionNo;
-    }
+    private long questionId;
+
+    private long selectionNo;
 
     public long getQuestionId() {
         return questionId;
     }
 
-    public long getSelecselectiionNo() {
-        return selecselectiionNo;
+    public long getSelectionNo() {
+        return selectionNo;
     }
 
 }

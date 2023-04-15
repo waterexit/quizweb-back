@@ -10,7 +10,7 @@ public class TaggingInfo {
 
     private Long num;
 
-    public Long getQuiz_id() {
+    public Long getQuizId() {
         return quizId;
     }
 

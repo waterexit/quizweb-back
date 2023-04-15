@@ -1,11 +1,8 @@
 package quizweb.domain.service;
 
-import java.io.IOException;
-
-import quizweb.object.CreateQuizParam;
+import quizweb.domain.repository.entity.Quiz;
 
 public interface CreateQuizService {
-    
-    public void createQuiz(CreateQuizParam createQuizParam) throws IOException;
-
+    // public void createQuiz(CreateQuizParam createQuizParam) throws IOException;
+    public Quiz newQuiz();
 }

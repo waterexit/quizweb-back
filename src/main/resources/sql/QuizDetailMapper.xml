@@ -53,8 +53,8 @@
             refid="quiz_Column_List" /> , <include refid="question_Column_List" /> , <include
             refid="choice_Column_List" /> , <include refid="tag_Column_List" /> from quiz as quiz
         inner join question as question on quiz.id = question.quiz_id inner join choice as choice on
-        question.id = choice.question_id inner join quiz_tagging as quiz_tagging on quiz.id =
-        quiz_tagging.quiz_id inner join tag as tag on quiz_tagging.tag_id = tag.id where quiz.id =
+        question.id = choice.question_id left outer join quiz_tagging as quiz_tagging on quiz.id =
+        quiz_tagging.quiz_id left outer join tag as tag on quiz_tagging.tag_id = tag.id where quiz.id =
         #{id,jdbcType=BIGINT} </select>
 
 </mapper>

@@ -47,12 +47,11 @@
         - ./conf/tomcat/conf:/usr/local/tomcat/conf
         - war_deploy:/usr/local/tomcat/webapps
         # - ./target/quizWeb.war:/usr/local/tomcat/webapps/quizWeb.war
-        # - images:/usr/local/tomcat/webapps/quizWeb/WEB-INF/classes/static/img
+        - images:/usr/local/tomcat/webapps/quizWeb/WEB-INF/classes/static/img
       command: catalina.sh jpda run
       networks:
         develop_net:
           ipv4_address: 172.22.0.5
-  
   networks:
     develop_net:
       driver: bridge

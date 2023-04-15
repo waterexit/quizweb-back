@@ -41,7 +41,7 @@
     tomcat:
       depends_on:
         - apache
-      image: tomcat:latest
+      image: tomcat:9-jdk8-temurin
       ports:
       - '8080:8080'
       - '8081:8081'
@@ -49,7 +49,7 @@
       - '8009'
       volumes:
         - ./conf/tomcat/conf:/usr/local/tomcat/conf
-        - ./target/QuizWeb-1.0-SNAPSHOT.war:/usr/local/tomcat/webapps/quizWeb.war
+        - ./target/quizWeb.war:/usr/local/tomcat/webapps/quizWeb.war
         # - images:/usr/local/tomcat/webapps/quizWeb/WEB-INF/classes/static/img
       networks:
         app_net:

@@ -19,7 +19,7 @@
     insert into quiz_tagging (quiz_id, tag_id)
     values (#{quizId,jdbcType=BIGINT}, #{tagId,jdbcType=BIGINT})
   </insert>
-  <insert id="insertList" parameterType="quizweb.domain.repository.entity.Tag" keyProperty="id" useGeneratedKeys="true">
+  <insert id="insertList" parameterType="quizweb.domain.repository.entity.QuizTagging" keyProperty="id" useGeneratedKeys="true">
     insert into quiz_tagging (quiz_id, tag_id)
     values
     <foreach item="item" collection="list" separator=",">

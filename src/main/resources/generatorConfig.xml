@@ -1,17 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 <generatorConfiguration>
-	<context id="context1"  defaultModelType="flat">
+	<context id="context1" defaultModelType="flat">
 		<!-- * CDIでMapperを参照できるよう"@Mapper"を追加するプラグイン -->
 		<plugin type="org.mybatis.generator.plugins.MapperAnnotationPlugin" />
 		<!-- * XMLをマージしない(mybatis-generator-pluginのoverwrite設定も参考のこと) -->
 		<plugin type="org.mybatis.generator.plugins.UnmergeableXmlMappersPlugin" />
-		<jdbcConnection connectionURL="jdbc:mysql://172.22.0.3:3306/QUIZ" driverClass="com.mysql.cj.jdbc.Driver" password="user" userId="user" />
-		<javaModelGenerator targetPackage="quizweb.domain.repository.entity" targetProject="/workspaces/quizweb/src/main/java" />
-		<sqlMapGenerator targetPackage="sql/base" targetProject="/workspaces/quizweb/src/main/resources" />
-		<javaClientGenerator targetPackage="quizweb.domain.repository.mapper.base" targetProject="/workspaces/quizweb/src/main/java" type="XMLMAPPER" />
-		<table schema="QUIZ" modelType="flat" tableName="quiz" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableCountByExample="false" selectByExampleQueryId="false" />
-		<table schema="QUIZ" modelType="flat" tableName="question" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableCountByExample="false" selectByExampleQueryId="false" />
-		<table schema="QUIZ" modelType="flat" tableName="choice" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableCountByExample="false" selectByExampleQueryId="false" />
+		<jdbcConnection connectionURL="jdbc:mysql://172.22.0.3:3306/QUIZ"
+			driverClass="com.mysql.cj.jdbc.Driver" password="user" userId="user" />
+		<javaModelGenerator targetPackage="quizweb.domain.repository.entity"
+			targetProject="/workspaces/quizweb/src/main/java" />
+		<sqlMapGenerator targetPackage="sql/base"
+			targetProject="/workspaces/quizweb/src/main/resources" />
+		<javaClientGenerator targetPackage="quizweb.domain.repository.mapper.base"
+			targetProject="/workspaces/quizweb/src/main/java" type="XMLMAPPER" />
+		<table schema="QUIZ" modelType="flat" tableName="quiz" enableSelectByExample="false"
+			enableUpdateByExample="false" enableDeleteByExample="false" enableCountByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey identity="true" sqlStatement="mysql" column="id" />
+		</table>
+		<table schema="QUIZ" modelType="flat" tableName="question" enableSelectByExample="false"
+			enableUpdateByExample="false" enableDeleteByExample="false" enableCountByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey identity="true" sqlStatement="mysql" column="id" />
+		</table>
+		<table schema="QUIZ" modelType="flat" tableName="choice" enableSelectByExample="false"
+			enableUpdateByExample="false" enableDeleteByExample="false" enableCountByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey identity="true" sqlStatement="mysql" column="id" />
+		</table>
+		<table schema="QUIZ" modelType="flat" tableName="staging_quiz" enableSelectByExample="false"
+			enableUpdateByExample="false" enableDeleteByExample="false" enableCountByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey identity="true" sqlStatement="mysql" column="id" />
+		</table>
+		<table schema="QUIZ" modelType="flat" tableName="staging_question" enableSelectByExample="false"
+			enableUpdateByExample="false" enableDeleteByExample="false" enableCountByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey identity="true" sqlStatement="mysql" column="id" />
+		</table>
+		<table schema="QUIZ" modelType="flat" tableName="staging_choice" enableSelectByExample="false"
+			enableUpdateByExample="false" enableDeleteByExample="false" enableCountByExample="false"
+			selectByExampleQueryId="false">
+			<generatedKey identity="true" sqlStatement="mysql" column="id" />
+		</table>
 	</context>
 </generatorConfiguration>
