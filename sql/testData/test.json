@@ -1,16 +1,16 @@
 {
  "quiz":[
-     {"id":1,"create_userid":1,"title":"進撃の巨人クイズ","answerer_num":0,"avarage_correct":0.0,"category":"anime","publish":false},
-     {"id":2,"create_userid":1,"title":"進撃の巨人クイズ 中級","answerer_num":10,"avarage_correct":0.0,"category":"anime","publish":false},
-     {"id":3,"create_userid":1,"title":"ダミー","answerer_num":0,"avarage_correct":0.0,"category":"study","publish":false},
-     {"id":4,"create_userid":1,"title":"ダミー","answerer_num":0,"avarage_correct":0.0,"category":"anime","publish":false},
-     {"id":5,"create_userid":1,"title":"ダミー","answerer_num":0,"avarage_correct":0.0,"category":"anime","publish":false},
-     {"id":6,"create_userid":1,"title":"ダミー 中級","answerer_num":1000,"avarage_correct":0.0,"category":"anime","publish":false},
-     {"id":7,"create_userid":1,"title":"ダミー","answerer_num":0,"avarage_correct":0.0,"category":"anime","publish":false},
-     {"id":8,"create_userid":1,"title":"ダミー","answerer_num":0,"avarage_correct":0.0,"category":"anime","publish":false},
-     {"id":9,"create_userid":1,"title":"ダミー","answerer_num":0,"avarage_correct":0.0,"category":"anime","publish":false},
-     {"id":10,"create_userid":1,"title":"ダミー","answerer_num":0,"avarage_correct":0.0,"category":"anime","publish":false},
-     {"id":11,"create_userid":1,"title":"ダミー","answerer_num":0,"avarage_correct":0.0,"category":"other","publish":false}
+     {"id":1,"create_userid":1,"title":"進撃の巨人クイズ","answerer_num":0,"avarage_correct":0.0,"publish":false},
+     {"id":2,"create_userid":1,"title":"進撃の巨人クイズ 中級","answerer_num":10,"avarage_correct":0.0,"publish":false},
+     {"id":3,"create_userid":1,"title":"ダミー","answerer_num":0,"avarage_correct":0.0,"publish":false},
+     {"id":4,"create_userid":1,"title":"ダミー","answerer_num":0,"avarage_correct":0.0,"publish":false},
+     {"id":5,"create_userid":1,"title":"ダミー","answerer_num":0,"avarage_correct":0.0,"publish":false},
+     {"id":6,"create_userid":1,"title":"ダミー 中級","answerer_num":1000,"avarage_correct":0.0,"publish":false},
+     {"id":7,"create_userid":1,"title":"ダミー","answerer_num":0,"avarage_correct":0.0,"publish":false},
+     {"id":8,"create_userid":1,"title":"ダミー","answerer_num":0,"avarage_correct":0.0,"publish":false},
+     {"id":9,"create_userid":1,"title":"ダミー","answerer_num":0,"avarage_correct":0.0,"publish":false},
+     {"id":10,"create_userid":1,"title":"ダミー","answerer_num":0,"avarage_correct":0.0,"publish":false},
+     {"id":11,"create_userid":1,"title":"ダミー","answerer_num":0,"avarage_correct":0.0,"publish":false}
     ],
 "tag":[
     {"id":1,"tag":"進撃の巨人","num":2}
