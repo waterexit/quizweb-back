@@ -5,24 +5,27 @@ import java.util.List;
 import quizweb.common.enums.ChoiceTypeEnum;
 
 public class CreateQuestionParam {
-    private long quizId;
-
+    private long id;
+    private int num;
     private String content;
-
     private String comment;
-
     private ChoiceTypeEnum choicetype;
-
     private List<CreateChoiceParam> choices;
 
-    private long createUserId;
-
-    public long getQuizId() {
-        return quizId;
+    public long getId() {
+        return id;
     }
 
-    public void setQuizId(long quizId) {
-        this.quizId = quizId;
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public int getNum() {
+        return num;
+    }
+
+    public void setNum(int num) {
+        this.num = num;
     }
 
     public String getContent() {
@@ -57,11 +60,4 @@ public class CreateQuestionParam {
         this.choices = choiceParams;
     }
 
-    public long getCreateUserId() {
-        return createUserId;
-    }
-
-    public void setCreateUserId(long createUserId) {
-        this.createUserId = createUserId;
-    }
 }

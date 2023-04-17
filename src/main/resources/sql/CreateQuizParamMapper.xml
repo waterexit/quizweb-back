@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="quizweb.domain.repository.mapper.CreateQuizParamMapper">
+    <resultMap id="BaseResultMap" type="quizweb.object.CreateQuizParam">
+        <id column="quiz_id" jdbcType="BIGINT" property="id" />
+        <result column="quiz_title" jdbcType="VARCHAR" property="title" />
+        <result column="quiz_description" jdbcType="VARCHAR" property="description" />
+        <result column="quiz_thumbnail" jdbcType="VARCHAR" property="thumbnail" />
+        <collection property="questions" ofType="quizweb.object.CreateQuestionParam">
+            <id column="question_id" jdbcType="BIGINT" property="id" />
+            <result column="question_num" jdbcType="INTEGER" property="num" />
+            <result column="question_comment" jdbcType="LONGVARCHAR" property="comment" />
+            <result column="question_content" jdbcType="LONGVARCHAR" property="content" />
+            <result column="question_choiceType" jdbcType="LONGVARCHAR" property="choicetype" />
+            <collection property="choices" ofType="quizweb.object.CreateChoiceParam">
+                <id column="choice_id" jdbcType="BIGINT" property="id" />
+                <result column="choice_selection_no" jdbcType="INTEGER" property="selectionNo" />
+                <result column="choice_correct_flg" jdbcType="BIT" property="correctFlg" />
+                <result column="choice_content" jdbcType="LONGVARCHAR" property="content" />
+            </collection>
+        </collection>
+        <collection property="tags" ofType="quizweb.domain.repository.entity.Tag">
+            <id column="tag_id" jdbcType="BIGINT" property="id" />
+            <result column="tag_tag" jdbcType="VARCHAR" property="tag" />
+            <result column="tag_num" jdbcType="BIGINT" property="num" />
+        </collection>
+    </resultMap>
+
+    <sql id="quiz_Column_List"> 
+        quiz.quiz_id as quiz_id,
+        quiz.title as quiz_title, 
+        quiz.description as quiz_description,
+        quiz.thumbnail as quiz_thumbnail
+    </sql>
+
+    <sql id="question_Column_List">
+        question.question_id as question_id,
+        question.num as question_num, 
+        question.comment as question_comment, 
+        question.content as question_content,
+        question.choiceType as question_choiceType
+    </sql>
+
+    <sql id="choice_Column_List"> 
+        choice.choice_id as choice_id, 
+        choice.selection_no as choice_selection_no, 
+        choice.correct_flg as choice_correct_flg,
+        choice.content as choice_content
+    </sql>
+
+    <sql id="tag_Column_List"> 
+        tag.id as tag_id, 
+        tag.tag as tag_tag, 
+        tag.num as tag_num 
+    </sql>
+
+    <select id="getCreateQuizParam" resultMap="BaseResultMap" parameterType="java.lang.Long"> 
+    select 
+        <include refid="quiz_Column_List" /> ,
+        <include refid="question_Column_List" /> ,
+        <include refid="choice_Column_List" /> ,
+        <include refid="tag_Column_List" /> 
+    from 
+      staging_quiz as quiz
+    inner join staging_question as question 
+      on quiz.quiz_id = question.quiz_id 
+    inner join staging_choice as choice 
+      on question.question_id = choice.question_id 
+    left outer join quiz_tagging as quiz_tagging
+      on quiz.quiz_id = quiz_tagging.quiz_id 
+    left outer join tag as tag 
+      on quiz_tagging.tag_id = tag.id
+    where
+     quiz.quiz_id = #{id,jdbcType=BIGINT} 
+    </select>
+
+</mapper>

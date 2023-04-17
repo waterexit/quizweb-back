@@ -1,17 +1,25 @@
 package quizweb.object;
 
 public class CreateChoiceParam {
-    private long questionId;
+    private long id;
+    private int selectionNo;
     private String content;
     private boolean correctFlg;
-    private long createuserId;
 
-    public long getQuestionId() {
-        return questionId;
+    public long getId() {
+        return id;
     }
 
-    public void setQuestionId(long questionId) {
-        this.questionId = questionId;
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public int getSelectionNo() {
+        return selectionNo;
+    }
+
+    public void setSelectionNo(int selectionNo) {
+        this.selectionNo = selectionNo;
     }
 
     public void setContent(String content) {
@@ -29,13 +37,4 @@ public class CreateChoiceParam {
     public boolean getCorrectFlg() {
         return correctFlg;
     }
-
-    public long getCreateuserId() {
-        return createuserId;
-    }
-
-    public void setCreateuserId(long createuserId) {
-        this.createuserId = createuserId;
-    }
-
 }
