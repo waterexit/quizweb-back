@@ -5,7 +5,6 @@ import org.springframework.security.core.userdetails.AuthenticationUserDetailsSe
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.web.authentication.preauth.PreAuthenticatedAuthenticationToken;
-import org.springframework.stereotype.Component;
 
 import quizweb.app.authentic.entity.TwitterUser;
 import quizweb.domain.instruct.gateway.TwitterAccessTokenGateway;
@@ -13,7 +12,7 @@ import quizweb.domain.instruct.gateway.TwitterVerifyCredentialsGateway;
 import quizweb.domain.instruct.valueobject.response.TwitterAccessTokenResponse;
 import quizweb.domain.instruct.valueobject.response.TwitterVerifyCredentialsResponse;
 
-@Component
+// @Component
 public class MyAuthenticationUserDetailsService
                 implements AuthenticationUserDetailsService<PreAuthenticatedAuthenticationToken> {
 

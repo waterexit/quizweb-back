@@ -14,26 +14,26 @@ import org.springframework.security.web.authentication.preauth.PreAuthenticatedA
 import org.springframework.security.web.authentication.preauth.PreAuthenticatedAuthenticationToken;
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 
-import quizweb.app.authentic.MyPreAuthenticatedProcessingFilter;
+import quizweb.app.authentic.MyPreAuthenticatedOAuth2ProcessingFilter;
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     AuthenticationUserDetailsService<PreAuthenticatedAuthenticationToken> authenticationUserDetailsService;
- 
-    
+
+
     /**
      * リクエストパラメータから認証情報を取得するためのフィルターを返却する
      * @return 認証に使用するフィルター
      * @throws Exception
      */
     public AbstractPreAuthenticatedProcessingFilter preAuthenticatedProcessingFilter() throws Exception {
-        MyPreAuthenticatedProcessingFilter filter = new MyPreAuthenticatedProcessingFilter();
+        MyPreAuthenticatedOAuth2ProcessingFilter filter = new MyPreAuthenticatedOAuth2ProcessingFilter();
         filter.setAuthenticationManager(authenticationManager());
         return filter;
     }
-    
+
     /**
      * 認証に使用するプロバイダーを作成する
      * @return 認証プロバイダー
@@ -54,7 +54,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(WebSecurity web) throws Exception {
         // Security Filter Chain から除外するパス等を設定
-        web.ignoring().antMatchers("/img/**/","/","/doAuth","/**/manifest.json");
+        web.ignoring().antMatchers("/img/**/","/","/doAuth","/doAuth2","/**/manifest.json");
     }
     @Override
     protected void configure(HttpSecurity http) throws Exception {

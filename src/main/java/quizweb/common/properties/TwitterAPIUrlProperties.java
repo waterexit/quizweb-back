@@ -17,6 +17,15 @@ public class TwitterAPIUrlProperties {
     @Value("${verify_credentials}")
     private String verifyCredentials;
 
+    @Value("${authenticate_oauth2}")
+    private String authenticateOAuth2;
+
+    @Value("${access_token_oauth2}")
+    private String accessTokenOAuth2;
+
+    @Value("${users_me}")
+    private String usersMe;
+
     public String getRequestToken() {
         return requestToken;
     }
@@ -33,4 +42,15 @@ public class TwitterAPIUrlProperties {
         return verifyCredentials;
     }
 
+    public String getAuthenticateOAuth2() {
+        return authenticateOAuth2;
+    }
+
+    public String getAccessTokenOAuth2() {
+        return accessTokenOAuth2;
+    }
+
+    public String getUsersMe() {
+        return usersMe;
+    }
 }

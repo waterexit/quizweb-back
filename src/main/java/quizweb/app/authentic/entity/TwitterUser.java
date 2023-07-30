@@ -19,6 +19,12 @@ public class TwitterUser implements UserDetails {
         this.imageUrl = twitterVerifyCredentialsResponse.getProfileImageUrl();
     }
 
+    public TwitterUser(String json) {
+        System.out.println(json);
+        this.username = "test";
+
+    }
+
     private static final long serialVersionUID = 1L;
 
     private String username;
